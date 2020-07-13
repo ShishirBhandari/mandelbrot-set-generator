@@ -1,0 +1,76 @@
+body {
+  background: linear-gradient(to bottom, #f7b9bd, #fbd786, #c6ffdd);
+  font-family: "Berkshire Swash";
+}
+
+.root {
+  height: 95vh;
+}
+
+h1 {
+  padding: 10px 10px 0px 10px;
+}
+
+#canvas-container {
+  float: left;
+}
+
+#fps {
+  position: relative;
+  left: -50px;
+  color: yellow;
+  font-size: 13px;
+}
+
+#ui {
+  float: right;
+}
+
+#ui ul {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#ui li {
+  font-size: 18px;
+  margin: 5px;
+  padding: 5px;
+  font-weight: normal;
+}
+
+input {
+  float: right;
+}
+
+input[type="number"] {
+  width: 50px;
+}
+
+input[type="range"] {
+  width: 450px;
+}
+
+input[type="color"] {
+  border: none;
+  background: none;
+}
+
+#download {
+  float: left;
+  border: none;
+  text-decoration: none;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px 0px;
+  background-color: darkblue;
+  color: white;
+  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  transition-duration: 0.1s;
+}
+
+#download:hover {
+  background-color: blue;
+  cursor: pointer;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
