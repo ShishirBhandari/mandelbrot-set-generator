@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Berkshire Swash"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+    <title>Mandelbrot Set</title>
+  </head>
+  <body>
+    <div class="root">
+      <h1>Mandelbrot Set</h1>
+      <div class="application">
+        <label id="fps">fps: </label>
+        <div id="canvas-container"></div>
+        <div id="ui">
+          <ul>
+            | Controls |
+            <li>
+              Iterations: <input type="number" value="50" id="iter" />
+            </li>
+            <li>
+              Scale:
+              <input
+                type="range"
+                min="1.0"
+                max="100"
+                step="0.001"
+                value="1.0"
+                id="scale"
+              />
+            </li>
+            <li>
+              C-Real:
+              <input
+                type="range"
+                min="-2.0"
+                max="2.0"
+                step="0.001"
+                value="-1.2"
+                id="c-real"
+              />
+            </li>
+            <li>
+              C-Imag:
+              <input
+                type="range"
+                min="0.0"
+                max="1.0"
+                step="0.001"
+                value="0.0"
+                id="c-imag"
+              />
+            </li>
+            <li>
+              Limit: <input type="number" value="2.0" step="0.2" id="limit" />
+            </li>
+            <li>
+              Offset-X:
+              <input
+                type="range"
+                value="0.0"
+                step="0.05"
+                min="-1.0"
+                max="1.0"
+                id="offset-x"
+              />
+            </li>
+            <li>
+              Offset-Y:
+              <input
+                type="range"
+                value="0.0"
+                step="0.05"
+                min="-1.0"
+                max="1.0"
+                id="offset-y"
+              />
+            </li>
+            <li>Color: <input type="color" value="#ffffff" id="color" /></li>
+            <li>
+              Blink Frequency: <input type="number" value="1" id="color-freq" />
+            </li>
+          </ul>
+        </div>
+        <a id="download" download="mandelbrot_image.png">Download Image</a>
+      </div>
+      <div class="footer"></div>
+    </div>
+
+    <script src="./js/shaders.js"></script>
+    <script src="./js/constants.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/ui.js"></script>
+  </body>
+</html>
