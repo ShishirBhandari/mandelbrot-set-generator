@@ -97,6 +97,7 @@ function downloadCanvasImage() {
 
 downloadButton.addEventListener("click", downloadCanvasImage());
 
+document.getElementById("toggle-fractal").addEventListener("change", function(e){ is_mandelbrot = 1 - e.target.value });
 
 function uiLoop() {
   var factorX = 0.05 * offsetXElem.value * 1.0 / (10.0 * scale);
