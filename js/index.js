@@ -3,6 +3,7 @@
  */
 
 // Constants
+is_mandelbrot = IS_MANDELBROT;
 iterations = ITERS;
 scale = SCALE;
 offset = OFFSET;
@@ -32,7 +33,7 @@ gl.shaderSource(vertexShader, vertexShaderText);
 gl.compileShader(vertexShader);
 
 var fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
-gl.shaderSource(fragmentShader, mandelbrotSetFragmentShaderText);
+gl.shaderSource(fragmentShader, fractalFragmentShaderText);
 gl.compileShader(fragmentShader);
 
 // Attach shaders
@@ -88,6 +89,7 @@ gl.vertexAttribPointer(program.position, 2, gl.FLOAT, false, 0, 0);
 
 // Uniforms
 var timeUniformLocation = gl.getUniformLocation(program, "time");
+var isMandelbrotUniformLocation = gl.getUniformLocation(program, "is_mandelbrot");
 var iterationUniformLocation = gl.getUniformLocation(program, "iters");
 var scaleUniformLocation = gl.getUniformLocation(program, "scale");
 var limitUniformLocation = gl.getUniformLocation(program, "limit");
@@ -101,6 +103,7 @@ var colorFrequencyUniformLocation = gl.getUniformLocation(
 );
 
 function setUniforms() {
+  gl.uniform1i(isMandelbrotUniformLocation, is_mandelbrot);
   gl.uniform1f(iterationUniformLocation, iterations);
   gl.uniform1f(scaleUniformLocation, scale);
   gl.uniform1f(limitUniformLocation, limit);
