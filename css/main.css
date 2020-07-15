@@ -55,6 +55,41 @@ input[type="color"] {
   background: none;
 }
 
+#toggle-fractal {
+  float: none;
+  width: 50px;
+  transform: translate(0.0, 4px);
+  
+  -webkit-appearance: none;
+  appearance: none;
+  height: 20px;
+  border-radius: 10px;
+  background: white;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+#toggle-fractal:hover {
+  opacity: 1.5;
+}
+
+#toggle-fractal::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 20px;
+  border-radius: 10px;
+  background: blue;
+  cursor: pointer;
+}
+
+#toggle-fractal::-webkit-slider-thumb:hover {
+  background: darkblue;
+}
+
+
 #download {
   float: left;
   border: none;
