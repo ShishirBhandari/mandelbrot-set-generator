@@ -18,7 +18,6 @@ void main() {
 // Fractal Fragment shader
 var fractalFragmentShaderText = `
 precision highp float;
-#define iterations x
 uniform float time;
 uniform bool is_mandelbrot;
 
