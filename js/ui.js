@@ -46,11 +46,13 @@ iterElem.addEventListener("change", function (e) {
 });
 
 scaleElem.addEventListener("mousemove", function (e) {
-  scale = e.target.value * e.target.value;
+  val = e.target.value;
+  scale = val * val;
 });
 
 scaleElem.addEventListener("change", function (e) {
-  scale = e.target.value * e.target.value;
+  val = e.target.value;
+  scale = val * val;
 });
 
 colorElem.addEventListener("change", function (e) {
@@ -85,19 +87,19 @@ colorFreqElem.addEventListener("change", function (e) {
 var downloadButton = document.getElementById("download");
 
 function downloadCanvasImage() {
-  canvas.toBlob(function (blob) {
-    var dataUrl = URL.createObjectURL(blob);
-    downloadButton.setAttribute("href", dataUrl);
-  });
-
-  // var image = document.getElementById("canvas").toDataURL("image/png")
-  //                   .replace("image/png", "image/octet-stream");
-  // downloadButton.setAttribute("href", image)
+  var image = document.getElementById("canvas").toDataURL("image/png", 1)
+                    .replace("image/png", "image/octet-stream");
+  downloadButton.setAttribute("href", image)
 }
 
 downloadButton.addEventListener("click", downloadCanvasImage());
 
-document.getElementById("toggle-fractal").addEventListener("change", function(e){ is_mandelbrot = 1 - e.target.value });
+document.getElementById("toggle-fractal").addEventListener("change", function(e){
+  reset();
+  is_mandelbrot = 1 - e.target.value;
+
+  document.getElementsByTagName("h1")[0].innerHTML = is_mandelbrot ? "Mandelbrot Set" : "Julia Set";
+});
 
 function uiLoop() {
   var factorX = 0.05 * offsetXElem.value * 1.0 / (10.0 * scale);

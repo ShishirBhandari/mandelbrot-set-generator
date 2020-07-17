@@ -3,25 +3,28 @@
  */
 
 // Constants
-is_mandelbrot = IS_MANDELBROT;
-iterations = ITERS;
-scale = SCALE;
-offset = OFFSET;
-limit = LIMIT;
-cReal = C_REAL;
-cImag = C_IMAG;
-tintColor = TINT_COLOR;
-colorFrequency = COLOR_FREQ;
+function reset() {
+  is_mandelbrot = IS_MANDELBROT;
+  iterations = ITERS;
+  scale = SCALE;
+  offset = OFFSET;
+  limit = LIMIT;
+  cReal = C_REAL;
+  cImag = C_IMAG;
+  tintColor = TINT_COLOR;
+  colorFrequency = COLOR_FREQ;
+}
+reset();
 
 var canvas = document.createElement("canvas");
 canvas.setAttribute("id", "canvas");
-canvas.height = window.innerHeight / 1.5;
+canvas.height = window.innerHeight / 1.50;
 canvas.width = canvas.height * (16.0 / 9.0);
 
 var canvasContainer = document.getElementById("canvas-container");
 canvasContainer.appendChild(canvas);
 
-var gl = canvas.getContext("webgl");
+var gl = canvas.getContext("webgl2", {preserveDrawingBuffer: true});
 
 // Clear
 gl.clearColor(0.1, 0.1, 0.1, 1.0);
