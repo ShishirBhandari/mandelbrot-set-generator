@@ -3,9 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link
-      rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Berkshire Swash"
-    /> -->
+
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="icon" href="./favicon.png" type="image/icon type">
     <title>Mandelbrot Set</title>
@@ -19,17 +17,18 @@
         <div id="ui">
           <ul>
             | Controls |
+            <a href="help.html" style="float: none; font-size: 13px; text-decoration: none;">help</a>
             <li>Mandelbrot Set <input type="range" min="0" max="1" step="1" value="0" id="toggle-fractal"> Julia Set
             </li>
             <li>
               Iterations: <input type="number" value="50" id="iter" />
             </li>
             <li>
-              Scale:
+              Zoom:
               <input
                 type="range"
                 min="1.0"
-                max="100"
+                max="250"
                 step="0.001"
                 value="1.0"
                 id="scale"
