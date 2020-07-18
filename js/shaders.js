@@ -44,7 +44,7 @@ float get_mandelbrot_set(float real, float img, float c_real, float c_imag, floa
   real = c_real;
   img = c_imag;
   
-  float fractalColor = 0.0;
+  float fractal_color = 0.0;
   for(float i=0.0; i<5000.0; i++) {
     if(i >= iters) break;
     
@@ -53,15 +53,16 @@ float get_mandelbrot_set(float real, float img, float c_real, float c_imag, floa
     img = 2.0 * real_prev * img + ci;
 
     if(real*real + img*img > limit*limit) {
-        fractalColor = i / iters;
+        fractal_color = i / iters;
+        break;
     }
   }
 
-  return fractalColor;
+  return fractal_color;
 }
 
 float get_julia_set(float real, float img, float c_real, float c_imag, float iters) {
-  float fractalColor = 0.0;
+  float fractal_color = 0.0;
   for(float i=0.0; i<5000.0; i++) {
     if(i >= iters) break;
 
@@ -69,12 +70,13 @@ float get_julia_set(float real, float img, float c_real, float c_imag, float ite
     real = real_prev * real_prev - img * img + c_real;
     img = 2.0 * real_prev * img + c_imag;
 
-    if(real * real + img * img > limit) {
-        fractalColor = i / iters;
+    if(real * real + img * img > limit*limit) {
+        fractal_color = i / iters;
+        break;
     }
   }
 
-  return fractalColor;
+  return fractal_color;
 }
 
 void main() {
@@ -83,13 +85,13 @@ void main() {
   float real = (_pos[0]) * scale  + offset.x;
   float img = (_pos[1]) * scale + offset.y;
 
-  float fractalColor = 0.0;
-  if (is_mandelbrot) fractalColor = get_mandelbrot_set(real, img, c_real, c_imag, iters);
-  else fractalColor = get_julia_set(real, img, c_real, c_imag, iters);
+  float fractal_color = 0.0;
+  if (is_mandelbrot) fractal_color = get_mandelbrot_set(real, img, c_real, c_imag, iters);
+  else fractal_color = get_julia_set(real, img, c_real, c_imag, iters);
 
-  float r = map(fractalColor * fractalColor, 0.0, 0.3 * 0.3, 0.0, 1.0);
-  float g = map(fractalColor, 0.3, 0.6, 0.0, 1.0);
-  float b = map(sqrt(fractalColor), sqrt(0.6), 1.0, 0.0, 1.0);
+  float r = map(fractal_color * fractal_color, 0.0, 0.3 * 0.3, 0.0, 1.0);
+  float g = map(fractal_color, 0.3, 0.6, 0.0, 1.0);
+  float b = map(sqrt(fractal_color), sqrt(0.6), 1.0, 0.0, 1.0);
 
   vec3 mandelbrot_color = vec3(r, g, b);
   vec4 final_color = vec4(mandelbrot_color, 1.0) * color;
