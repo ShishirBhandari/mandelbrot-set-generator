@@ -3,15 +3,20 @@ body {
 }
 
 .root {
-  height: 95vh;
+  height: 97.4vh;
 }
 
-h1 {
-  padding: 10px 10px 0px 10px;
-}
 
 #canvas-container {
   float: left;
+}
+
+#title {
+  position: relative;
+  left: -700px;
+  top: 5px;
+  color: white;
+  font-size: 18px;
 }
 
 #fps {

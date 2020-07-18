@@ -16,10 +16,11 @@ function reset() {
 }
 reset();
 
+const aspect_ratio = 1.2;
 var canvas = document.createElement("canvas");
 canvas.setAttribute("id", "canvas");
-canvas.height = window.innerHeight / 1.50;
-canvas.width = canvas.height * (16.0 / 9.0);
+canvas.height = window.innerHeight / 1.1;
+canvas.width = canvas.height * aspect_ratio;
 
 var canvasContainer = document.getElementById("canvas-container");
 canvasContainer.appendChild(canvas);

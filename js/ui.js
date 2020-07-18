@@ -98,7 +98,7 @@ document.getElementById("toggle-fractal").addEventListener("change", function(e)
   reset();
   is_mandelbrot = 1 - e.target.value;
 
-  document.getElementsByTagName("h1")[0].innerHTML = is_mandelbrot ? "Mandelbrot Set" : "Julia Set";
+  document.getElementById("title").innerHTML = is_mandelbrot ? "Mandelbrot Set" : "Julia Set";
 });
 
 function uiLoop() {
