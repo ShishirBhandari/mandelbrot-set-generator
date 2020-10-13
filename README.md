@@ -3,6 +3,8 @@ Mandelbrot set Image generator using Javascript and WebGL
 
 This javascript app generates Mandelbrot set and Julia set images using webgl and glsl shaders, and the result is displayed in html canvas.
 
+<b>Live Demo:</b> https://shishirbhandari.github.io/mandelbrot-set-generator/
+
 ## Application output
 ![Image of Application Screen](images/app_screenshot.png)
 
@@ -31,4 +33,5 @@ Animate the blinking of the image by changing the frequency of blinking.
 
 ## References
 <b>Mandelbrot set reference</b>: https://en.wikipedia.org/wiki/Mandelbrot_set
+
 <b>Julia set reference</b>: https://en.wikipedia.org/wiki/Julia_set
