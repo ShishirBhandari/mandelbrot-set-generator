@@ -88,11 +88,30 @@
             </li>
           </ul>
         </div>
-        <a id="download" download="mandelbrot_image.png" >Download Image</a>
+        <a id="download" download="mandelbrot_image.png" 
+        onclick ="downloadCanvasAsImage(this)" >Download Image</a>
       </div>
       <div class="footer"></div>
     </div>
 
+    <script>
+      var downloadCanvasAsImage = function(){
+      let canvasImage = document.getElementById('canvas').toDataURL('image/png');
+      let xhr = new XMLHttpRequest();
+      xhr.responseType = 'blob';
+      xhr.onload = function () {
+        let a = document.createElement('a');
+        a.href = window.URL.createObjectURL(xhr.response);
+        a.download = 'mandelbrot_image.png';
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        a.remove()
+      };
+      xhr.open('GET', canvasImage); // This is to download the canvas Image
+      xhr.send();
+     }
+    </script>
     <script src="./js/shaders.js"></script>
     <script src="./js/constants.js"></script>
     <script src="./js/index.js"></script>
