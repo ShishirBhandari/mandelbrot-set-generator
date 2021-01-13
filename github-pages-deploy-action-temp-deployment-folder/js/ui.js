@@ -86,13 +86,13 @@ colorFreqElem.addEventListener("change", function (e) {
 
 var downloadButton = document.getElementById("download");
 
-// function downloadCanvasImage() {
-//   var image = document.getElementById("canvas").toDataURL("image/png", 1)
-//                     .replace("image/png", "image/octet-stream");
-//   downloadButton.setAttribute("href", image)
-// }
+function downloadCanvasImage() {
+  var image = document.getElementById("canvas").toDataURL("image/png", 1)
+                    .replace("image/png", "image/octet-stream");
+  downloadButton.setAttribute("href", image)
+}
 
-// downloadButton.addEventListener("click", downloadCanvasImage());
+downloadButton.addEventListener("click", downloadCanvasImage());
 
 document.getElementById("toggle-fractal").addEventListener("change", function(e){
   reset();
