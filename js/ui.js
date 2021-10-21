@@ -8,15 +8,38 @@ var offsetXElem = document.getElementById("offset-x");
 var offsetYElem = document.getElementById("offset-y");
 var colorFreqElem = document.getElementById("color-freq");
 
+var mpostionInitial={x:null , y:null};
+var mpostionFinal={x:null , y:null};
 canvas.addEventListener("wheel", function (e) {
   e.preventDefault();
   factor = -0.0005 * e.deltaY;
   if (factor + scale > 0.0) {
-    scale += factor;
-    scaleElem.value = scale;
+    scale *= (1+ factor);
+    scaleElem.value = Math.sqrt(scale);
   }
 });
+canvas.addEventListener("mousedown", function (e) {
+  e.preventDefault();
+  mpostionInitial={x:e.clientX, y:e.clientY};
+});
+canvas.addEventListener("mousemove", function (e) {
+  e.preventDefault();
 
+  if(mpostionInitial.x !== null){
+    if(mpostionFinal.x !==null) {
+      var diff = {x: e.clientX- mpostionFinal.x, y: e.clientY- mpostionFinal.y }  
+      console.log(diff)
+      offset[0] -= 0.05 * diff.x * 1.0 / (10.0 * scale);
+      offset[1] += 0.05 * diff.y * 1.0 / (10.0 * scale);
+    }
+  mpostionFinal={x:e.clientX, y:e.clientY};
+  }
+});
+canvas.addEventListener("mouseup", function (e) {
+  e.preventDefault();
+  mpostionInitial={x:null , y:null};
+  mpostionFinal={x:null , y:null};
+});
 iterElem.value = iterations;
 scaleElem.value = scale;
 limitElem.value = limit;
