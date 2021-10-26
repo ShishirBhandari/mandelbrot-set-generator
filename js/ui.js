@@ -3,6 +3,7 @@ var colorElem = document.getElementById("color");
 var scaleElem = document.getElementById("scale");
 var limitElem = document.getElementById("limit");
 var cRealElem = document.getElementById("c-real");
+var cRealDisplay = document.getElementById("c-real-display");
 var cImagElem = document.getElementById("c-imag");
 var offsetXElem = document.getElementById("offset-x");
 var offsetYElem = document.getElementById("offset-y");
@@ -85,6 +86,7 @@ colorElem.addEventListener("change", function (e) {
 
 cRealElem.addEventListener("mousemove", function (e) {
   cReal = e.target.value;
+  cRealDisplay.innerHTML = cReal
 });
 
 cImagElem.addEventListener("mousemove", function (e) {

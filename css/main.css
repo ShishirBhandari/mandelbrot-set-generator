@@ -115,3 +115,21 @@ input[type="color"] {
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
   color: white;
 }
+
+#displayer {
+  display: flex;
+}
+
+#c-real {
+  width: 394px;
+  margin-left: 20px;
+}
+
+#c-real-display {
+  background-color: white;
+  border: 1px solid black;
+  width: 50px;
+  padding: 1px 2px;
+  height: 18px;
+  font-size: 14px;
+}
