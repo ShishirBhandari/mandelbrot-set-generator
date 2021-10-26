@@ -5,6 +5,7 @@ var limitElem = document.getElementById("limit");
 var cRealElem = document.getElementById("c-real");
 var cRealDisplay = document.getElementById("c-real-display");
 var cImagElem = document.getElementById("c-imag");
+var cImagDisplay = document.getElementById("c-imag-display");
 var offsetXElem = document.getElementById("offset-x");
 var offsetYElem = document.getElementById("offset-y");
 var colorFreqElem = document.getElementById("color-freq");
@@ -91,6 +92,7 @@ cRealElem.addEventListener("mousemove", function (e) {
 
 cImagElem.addEventListener("mousemove", function (e) {
   cImag = e.target.value;
+  cImagDisplay.innerHTML = cImag
 });
 
 limitElem.addEventListener("change", function (e) {
