@@ -36,27 +36,33 @@
               />
             </li>
             <li>
-              C-Real:
-              <input
+              <div id="displayer">
+                C-Real:
+                <input
                 type="range"
                 min="-2.0"
                 max="2.0"
                 step="0.001"
                 value="-1.2"
                 id="c-real"
-              />
+                />
+              <div class="display" id="c-real-display"></div>
+              </div>
             </li>
             <li>
-              C-Imag:
-              <input
+              <div id="displayer">
+                C-Imag:
+                <input
                 type="range"
                 min="0.0"
                 max="1.0"
                 step="0.001"
                 value="0.0"
                 id="c-imag"
-              />
-            </li>
+                />
+              <div class="display" id="c-imag-display"></div>
+              </div>
+              </li>
             <li>
               Limit: <input type="number" value="2.0" step="0.2" id="limit" />
             </li>
