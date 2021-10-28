@@ -3,18 +3,20 @@
  */
 
 // Constants
-function reset() {
-  is_mandelbrot = IS_MANDELBROT;
+function reset(_is_mandelbrot) {
+  is_mandelbrot = _is_mandelbrot;
   iterations = ITERS;
   scale = SCALE;
   offset = OFFSET;
   limit = LIMIT;
-  cReal = C_REAL;
-  cImag = C_IMAG;
+  cReal = is_mandelbrot ? C_REAL : C_REAL_JULIA;
+  cImag = is_mandelbrot ? C_IMAG : C_IMAG_JULIA;
+  cRealJulia = C_REAL_JULIA
+  cImagJulia = C_IMAG_JULIA
   tintColor = TINT_COLOR;
   colorFrequency = COLOR_FREQ;
 }
-reset();
+reset(IS_MANDELBROT);
 
 const aspect_ratio = 1.2;
 var canvas = document.createElement("canvas");
@@ -25,7 +27,7 @@ canvas.width = canvas.height * aspect_ratio;
 var canvasContainer = document.getElementById("canvas-container");
 canvasContainer.appendChild(canvas);
 
-var gl = canvas.getContext("webgl2", {preserveDrawingBuffer: true});
+var gl = canvas.getContext("webgl2", { preserveDrawingBuffer: true });
 
 // Clear
 gl.clearColor(0.1, 0.1, 0.1, 1.0);
@@ -119,7 +121,7 @@ function setUniforms() {
   gl.uniform4fv(program.color, tintColor);
 }
 
-function updateValues() {}
+function updateValues() { }
 
 var prev_time;
 var elapsed_frames = 0;
