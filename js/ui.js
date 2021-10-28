@@ -10,46 +10,55 @@ var offsetXElem = document.getElementById("offset-x");
 var offsetYElem = document.getElementById("offset-y");
 var colorFreqElem = document.getElementById("color-freq");
 
-var mpostionInitial={x:null , y:null};
-var mpostionFinal={x:null , y:null};
+function uiResetCommon() {
+  scaleElem.value = scale;
+  limitElem.value = limit;
+  cRealElem.value = cReal;
+  cImagElem.value = cImag;
+
+  cRealDisplay.innerHTML = cReal;
+  cImagDisplay.innerHTML = cImag;
+}
+
+iterElem.value = iterations;
+offsetXElem.value = offset[0];
+offsetYElem.value = offset[1];
+colorFreqElem.value = colorFrequency;
+
+var mpostionInitial = { x: null, y: null };
+var mpostionFinal = { x: null, y: null };
 canvas.addEventListener("wheel", function (e) {
   e.preventDefault();
   factor = -0.0005 * e.deltaY;
   if (factor + scale > 0.0) {
-    scale *= (1+ factor);
+    scale *= (1 + factor);
     scaleElem.value = Math.sqrt(scale);
   }
 });
 canvas.addEventListener("mousedown", function (e) {
   e.preventDefault();
-  mpostionInitial={x:e.clientX, y:e.clientY};
+  mpostionInitial = { x: e.clientX, y: e.clientY };
 });
 canvas.addEventListener("mousemove", function (e) {
   e.preventDefault();
 
-  if(mpostionInitial.x !== null){
-    if(mpostionFinal.x !==null) {
-      var diff = {x: e.clientX- mpostionFinal.x, y: e.clientY- mpostionFinal.y }  
+  if (mpostionInitial.x !== null) {
+    if (mpostionFinal.x !== null) {
+      var diff = { x: e.clientX - mpostionFinal.x, y: e.clientY - mpostionFinal.y }
       console.log(diff)
       offset[0] -= 0.05 * diff.x * 1.0 / (10.0 * scale);
       offset[1] += 0.05 * diff.y * 1.0 / (10.0 * scale);
     }
-  mpostionFinal={x:e.clientX, y:e.clientY};
+    mpostionFinal = { x: e.clientX, y: e.clientY };
   }
 });
 canvas.addEventListener("mouseup", function (e) {
   e.preventDefault();
-  mpostionInitial={x:null , y:null};
-  mpostionFinal={x:null , y:null};
+  mpostionInitial = { x: null, y: null };
+  mpostionFinal = { x: null, y: null };
 });
-iterElem.value = iterations;
-scaleElem.value = scale;
-limitElem.value = limit;
-cRealElem.value = cReal;
-cImagElem.value = cImag;
-offsetXElem.value = offset[0];
-offsetYElem.value = offset[1];
-colorFreqElem.value = colorFrequency;
+
+uiResetCommon();
 
 String.prototype.convertToRGBA = function () {
   if (this.length != 6) {
@@ -113,28 +122,22 @@ colorFreqElem.addEventListener("change", function (e) {
 
 var downloadButton = document.getElementById("download");
 
-// function downloadCanvasImage() {
-//   var image = document.getElementById("canvas").toDataURL("image/png", 1)
-//                     .replace("image/png", "image/octet-stream");
-//   downloadButton.setAttribute("href", image)
-// }
-
-// downloadButton.addEventListener("click", downloadCanvasImage());
-
-document.getElementById("toggle-fractal").addEventListener("change", function(e){
-  reset();
+document.getElementById("toggle-fractal").addEventListener("change", function (e) {
   is_mandelbrot = 1 - e.target.value;
+  reset(is_mandelbrot);
 
   document.getElementById("title").innerHTML = is_mandelbrot ? "Mandelbrot Set" : "Julia Set";
+
+  uiResetCommon();
 });
 
 function uiLoop() {
   var factorX = 0.05 * offsetXElem.value * 1.0 / (10.0 * scale);
   offset[0] += factorX;
-  
+
   var factorY = 0.05 * offsetYElem.value * 1.0 / (10.0 * scale);
   offset[1] += factorY;
-  
+
   requestAnimationFrame(uiLoop);
 };
 uiLoop();
