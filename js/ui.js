@@ -3,20 +3,45 @@ var colorElem = document.getElementById("color");
 var scaleElem = document.getElementById("scale");
 var limitElem = document.getElementById("limit");
 var cRealElem = document.getElementById("c-real");
+var cRealDisplay = document.getElementById("c-real-display");
 var cImagElem = document.getElementById("c-imag");
+var cImagDisplay = document.getElementById("c-imag-display");
 var offsetXElem = document.getElementById("offset-x");
 var offsetYElem = document.getElementById("offset-y");
 var colorFreqElem = document.getElementById("color-freq");
 
+var mpostionInitial={x:null , y:null};
+var mpostionFinal={x:null , y:null};
 canvas.addEventListener("wheel", function (e) {
   e.preventDefault();
   factor = -0.0005 * e.deltaY;
   if (factor + scale > 0.0) {
-    scale += factor;
-    scaleElem.value = scale;
+    scale *= (1+ factor);
+    scaleElem.value = Math.sqrt(scale);
   }
 });
+canvas.addEventListener("mousedown", function (e) {
+  e.preventDefault();
+  mpostionInitial={x:e.clientX, y:e.clientY};
+});
+canvas.addEventListener("mousemove", function (e) {
+  e.preventDefault();
 
+  if(mpostionInitial.x !== null){
+    if(mpostionFinal.x !==null) {
+      var diff = {x: e.clientX- mpostionFinal.x, y: e.clientY- mpostionFinal.y }  
+      console.log(diff)
+      offset[0] -= 0.05 * diff.x * 1.0 / (10.0 * scale);
+      offset[1] += 0.05 * diff.y * 1.0 / (10.0 * scale);
+    }
+  mpostionFinal={x:e.clientX, y:e.clientY};
+  }
+});
+canvas.addEventListener("mouseup", function (e) {
+  e.preventDefault();
+  mpostionInitial={x:null , y:null};
+  mpostionFinal={x:null , y:null};
+});
 iterElem.value = iterations;
 scaleElem.value = scale;
 limitElem.value = limit;
@@ -62,10 +87,12 @@ colorElem.addEventListener("change", function (e) {
 
 cRealElem.addEventListener("mousemove", function (e) {
   cReal = e.target.value;
+  cRealDisplay.innerHTML = cReal
 });
 
 cImagElem.addEventListener("mousemove", function (e) {
   cImag = e.target.value;
+  cImagDisplay.innerHTML = cImag
 });
 
 limitElem.addEventListener("change", function (e) {
