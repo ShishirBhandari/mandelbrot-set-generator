@@ -1,107 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="./css/main.css" />
-    <link rel="icon" href="./favicon.png" type="image/icon type">
-    <title>Mandelbrot Set</title>
-  </head>
-  <body>
-    <div class="root">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      <div class="application">
-        <label id="fps">fps: </label>
-        <label id="title">Mandelbrot Set and Julia Set</label>
-        <div id="canvas-container"></div>
-        <div id="ui">
-          <ul>
-            | Controls |
-            <a href="help.html" style="float: none; font-size: 13px; text-decoration: none;">help?</a>
-            <li>Mandelbrot Set <input type="range" min="0" max="1" step="1" value="0" id="toggle-fractal"> Julia Set
-            </li>
-            <li>
-              Iterations: <input type="number" value="50" id="iter" />
-            </li>
-            <li>
-              Zoom:
-              <input
-                type="range"
-                min="1.0"
-                max="250"
-                step="0.001"
-                value="1.0"
-                id="scale"
-              />
-            </li>
-            <li>
-              <div id="displayer">
-                C-Real:
-                <input
-                type="range"
-                min="-2.0"
-                max="2.0"
-                step="0.001"
-                value="-1.2"
-                id="c-real"
-                />
+  <link rel="stylesheet" href="./css/main.css" />
+  <link rel="icon" href="./favicon.png" type="image/icon type">
+  <title>Mandelbrot Set</title>
+</head>
+
+<body>
+  <div class="root">
+
+    <div class="application">
+      <label id="fps">fps: </label>
+      <label id="title">Mandelbrot Set and Julia Set</label>
+      <div id="canvas-container"></div>
+      <div id="ui">
+        <ul>
+          | Controls |
+          <a href="help.html" style="float: none; font-size: 13px; text-decoration: none;">help?</a>
+          <li>Mandelbrot Set <input type="range" min="0" max="1" step="1" value="0" id="toggle-fractal"> Julia Set
+          </li>
+          <li>
+            Iterations: <input type="number" value="50" id="iter" />
+          </li>
+          <li>
+            Zoom:
+            <input type="range" min="1.0" max="250" step="0.001" value="1.0" id="scale" />
+          </li>
+          <li>
+            <div id="displayer">
+              C-Real:
+              <input type="range" min="-2.0" max="2.0" step="0.001" value="-1.2" id="c-real" />
               <div class="display" id="c-real-display"></div>
-              </div>
-            </li>
-            <li>
-              <div id="displayer">
-                C-Imag:
-                <input
-                type="range"
-                min="0.0"
-                max="1.0"
-                step="0.001"
-                value="0.0"
-                id="c-imag"
-                />
+            </div>
+          </li>
+          <li>
+            <div id="displayer">
+              C-Imag:
+              <input type="range" min="0.0" max="1.0" step="0.001" value="0.0" id="c-imag" />
               <div class="display" id="c-imag-display"></div>
-              </div>
-              </li>
-            <li>
-              Limit: <input type="number" value="2.0" step="0.2" id="limit" />
-            </li>
-            <li>
-              Offset-X:
-              <input
-                type="range"
-                value="0.0"
-                step="0.05"
-                min="-1.0"
-                max="1.0"
-                id="offset-x"
-              />
-            </li>
-            <li>
-              Offset-Y:
-              <input
-                type="range"
-                value="0.0"
-                step="0.05"
-                min="-1.0"
-                max="1.0"
-                id="offset-y"
-              />
-            </li>
-            <li>Color: <input type="color" value="#ffffff" id="color" /></li>
-            <li>
-              Blink Frequency: <input type="number" value="1" id="color-freq" />
-            </li>
-          </ul>
-        </div>
-        <a id="download" download="mandelbrot_image.png" 
-        onclick ="downloadCanvasAsImage(this)" >Download Image</a>
+            </div>
+          </li>
+          <li>
+            Limit: <input type="number" value="2.0" step="0.2" id="limit" />
+          </li>
+          <li>
+            Offset-X:
+            <input type="range" value="0.0" step="0.05" min="-1.0" max="1.0" id="offset-x" />
+          </li>
+          <li>
+            Offset-Y:
+            <input type="range" value="0.0" step="0.05" min="-1.0" max="1.0" id="offset-y" />
+          </li>
+          <li>Color: <input type="color" value="#ffffff" id="color" /></li>
+          <li>
+            Blink Frequency: <input type="number" value="1" id="color-freq" />
+          </li>
+        </ul>
       </div>
-      <div class="footer"></div>
+      <a id="download" download="mandelbrot_image.png" onclick="downloadCanvasAsImage(this)">Download Image</a>
     </div>
+    <div class="footer"></div>
+  </div>
 
-    <script>
-      var downloadCanvasAsImage = function(){
+  <script>
+    var downloadCanvasAsImage = function () {
       let canvasImage = document.getElementById('canvas').toDataURL('image/png');
       let xhr = new XMLHttpRequest();
       xhr.responseType = 'blob';
@@ -116,11 +82,12 @@
       };
       xhr.open('GET', canvasImage); // This is to download the canvas Image
       xhr.send();
-     }
-    </script>
-    <script src="./js/shaders.js"></script>
-    <script src="./js/constants.js"></script>
-    <script src="./js/index.js"></script>
-    <script src="./js/ui.js"></script>
-  </body>
+    }
+  </script>
+  <script src="./js/shaders.js"></script>
+  <script src="./js/constants.js"></script>
+  <script src="./js/index.js"></script>
+  <script src="./js/ui.js"></script>
+</body>
+
 </html>
