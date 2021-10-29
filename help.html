@@ -1,46 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="./css/main.css" />
-  <link rel="icon" href="./favicon.png" type="image/icon type">
-  <title>Help</title>
-</head>
-<body>
-  <div style="font-family: Arial, Helvetica, sans-serif; margin: 10px auto; max-width: 960px; ">
-    <h1 class="code-line" data-line-start=0 data-line-end=1 style="text-align:center"><a id="mandelbrotsetgenerator_0"></a>Mandelbrot Set Generator</h1>
-    <p class="has-line-data" data-line-start="1" data-line-end="2">Mandelbrot set Image generator using Javascript and WebGL.</p>
-    <p class="has-line-data" data-line-start="3" data-line-end="4">This JavaScript app generates Mandelbrot set and Julia set images using WebGL and GLSL shaders, and the result is displayed in HTML canvas.</p>
-    <p>Source Code: <a href="https://github.com/ShishirBhandari/mandelbrot-set-generator">GitHub Link</a></p>
-    <h2 class="code-line" data-line-start=5 data-line-end=6 ><a id="Application_output_5"></a>Application Output</h2>
-    <p class="has-line-data" data-line-start="6" data-line-end="7"><img src="images/app_screenshot.png" alt="Image of Application Screen" width="100%"></p>
-    <h2 class="code-line" data-line-start=8 data-line-end=9 ><a id="Controls_overview_8"></a>Controls Overview</h2>
-    <h4 class="code-line" data-line-start=9 data-line-end=10 ><a id="Mandelbrot_Set__Julia_Set_Toggle_9"></a>Mandelbrot Set &amp; Julia Set Toggle:</h4>
-    <p class="has-line-data" data-line-start="10" data-line-end="11">This control lets us choose between Mandelbrot Set and Julia Set. Each set produces different image.</p>
-    <h4 class="code-line" data-line-start=11 data-line-end=12 ><a id="Iterations_11"></a>Iterations:</h4>
-    <p class="has-line-data" data-line-start="12" data-line-end="13">Number of iterations to use to produce the image. Higher values produces more detailed thus better images.</p>
-    <h4 class="code-line" data-line-start=13 data-line-end=14 ><a id="Scale_13"></a>Scale:</h4>
-    <p class="has-line-data" data-line-start="14" data-line-end="15">Scale represents zoom-in value. Combine scale and offsetX, offsetY to produce different images.</p>
-    <h4 class="code-line" data-line-start=15 data-line-end=16 ><a id="CReal_15"></a>C-Real:</h4>
-    <p class="has-line-data" data-line-start="16" data-line-end="17">Value of real part of C in the Julia-set equation (f(Z) = Z<sup>2</sup> + C), where C = x + iy thus C-Real = x;</p>
-    <h4 class="code-line" data-line-start=17 data-line-end=18 ><a id="CImag_17"></a>C-Imag:</h4>
-    <p class="has-line-data" data-line-start="18" data-line-end="19">Value of imaginary part of C in the Julia-set equation, C-Imag = y</p>
-    <h4 class="code-line" data-line-start=19 data-line-end=20 ><a id="Limit_19"></a>Limit:</h4>
-    <p class="has-line-data" data-line-start="20" data-line-end="21">Value of limit to use in iteration process. Limit is the value of abs(Z) beyond which the point in consideration is likely to diverge. Default limit value for Mandelbrot is 2.</p>
-    <h4 class="code-line" data-line-start=21 data-line-end=22 ><a id="OffsetX_21"></a>Offset-X:</h4>
-    <p class="has-line-data" data-line-start="22" data-line-end="23">Offset along x-axis</p>
-    <h4 class="code-line" data-line-start=23 data-line-end=24 ><a id="OffsetY_23"></a>Offset-Y:</h4>
-    <p class="has-line-data" data-line-start="24" data-line-end="25">Offset along y-axis</p>
-    <h4 class="code-line" data-line-start=25 data-line-end=26 ><a id="Color_25"></a>Color:</h4>
-    <p class="has-line-data" data-line-start="26" data-line-end="27">Choose the tint colour of the generated images.</p>
-    <h4 class="code-line" data-line-start=27 data-line-end=28 ><a id="Blink_Frequency_27"></a>Blink Frequency:</h4>
-    <p class="has-line-data" data-line-start="28" data-line-end="29">Animate the blinking of the image by changing the frequency of blinking.</p>
-    <h2 class="code-line" data-line-start=31 data-line-end=32 ><a id="References_31"></a>References</h2>
-    <p class="has-line-data" data-line-start="32" data-line-end="34">
-      <strong>Mandelbrot set reference:</strong> <a href="https://en.wikipedia.org/wiki/Mandelbrot_set">https://en.wikipedia.org/wiki/Mandelbrot_set</a><br>
-      <strong>Julia set reference:</strong> <a href="https://en.wikipedia.org/wiki/Julia_set">https://en.wikipedia.org/wiki/Julia_set</a></p>
-  </div>
-</body>
+    <link rel="stylesheet" href="./css/help.css" />
+    <link rel="icon" href="./favicon.png" type="image/icon type" />
+    <title>Help</title>
+  </head>
+  <body>
+      <nav>
+        <h1 class="main-heading" data-line-start="0" data-line-end="1">
+          <a id="mandelbrotsetgenerator_0" href="./index.html"
+            >Mandelbrot Set Generator</a
+          > | Help
+        </h1>
+        <a
+          href="https://github.com/ShishirBhandari/mandelbrot-set-generator"
+          <a
+          href=""
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+            /></svg
+        ></a>
+      </nav>
+      <div class="main-data">
+        <p class="has-line-data" data-line-start="1" data-line-end="2">
+          Mandelbrot set Image generator using Javascript and WebGL.
+        </p>
+        <p class="has-line-data" data-line-start="3" data-line-end="4">
+          This JavaScript app generates Mandelbrot set and Julia set images
+          using WebGL and GLSL shaders, and the result is displayed in HTML
+          canvas.
+        </p>
+      </div>
+
+      <br /><br /><br />
+
+      <!-- Section-1 -->
+      <div class="section-1">
+        <h2 class="code-line" data-line-start="5" data-line-end="6">
+          <a id="Application_output_5"></a>Application Output
+        </h2>
+        <img
+          src="images/app_screenshot.png"
+          alt="Image of Application Screen"
+          width="100%"
+        />
+      </div>
+
+      <!-- section-2 -->
+      <div class="section-2">
+        <h2 class="code-line" data-line-start="8" data-line-end="9">
+          <a id="Controls_overview_8"></a>Controls Overview
+        </h2>
+        <br /><br />
+        <div class="data">
+          <h4 class="code-line" data-line-start="9" data-line-end="10">
+            <a id="Mandelbrot_Set__Julia_Set_Toggle_9"></a>Mandelbrot Set &amp;
+            Julia Set Toggle:
+          </h4>
+          <p class="has-line-data" data-line-start="10" data-line-end="11">
+            This control lets us choose between Mandelbrot Set and Julia Set.
+            Each set produces different image.
+          </p>
+        </div>
+        <div class="data">
+          <h4 class="code-line" data-line-start="11" data-line-end="12">
+            <a id="Iterations_11"></a>Iterations:
+          </h4>
+          <p class="has-line-data" data-line-start="12" data-line-end="13">
+            Number of iterations to use to produce the image. Higher values
+            produces more detailed thus better images.
+          </p>
+        </div>
+        <div class="data">
+          <h4 class="code-line" data-line-start="13" data-line-end="14">
+            <a id="Scale_13"></a>Scale:
+          </h4>
+          <p class="has-line-data" data-line-start="14" data-line-end="15">
+            Scale represents zoom-in value. Combine scale and offsetX, offsetY
+            to produce different images.
+          </p>
+        </div>
+        <div class="data">
+          <h4 class="code-line" data-line-start="15" data-line-end="16">
+            <a id="CReal_15"></a>C-Real:
+          </h4>
+          <p class="has-line-data" data-line-start="16" data-line-end="17">
+            Value of real part of C in the Julia-set equation (f(Z) = Z<sup
+              >2</sup
+            >
+            + C), where C = x + iy thus C-Real = x;
+          </p>
+        </div>
+        <div class="data">
+          <h4 class="code-line" data-line-start="17" data-line-end="18">
+            <a id="CImag_17"></a>C-Imag:
+          </h4>
+          <p class="has-line-data" data-line-start="18" data-line-end="19">
+            Value of imaginary part of C in the Julia-set equation, C-Imag = y
+          </p>
+        </div>
+        <div class="data">
+          <h4 class="code-line" data-line-start="19" data-line-end="20">
+            <a id="Limit_19"></a>Limit:
+          </h4>
+          <p class="has-line-data" data-line-start="20" data-line-end="21">
+            Value of limit to use in iteration process. Limit is the value of
+            abs(Z) beyond which the point in consideration is likely to diverge.
+            Default limit value for Mandelbrot is 2.
+          </p>
+        </div>
+        <div class="data">
+          <h4 class="code-line" data-line-start="21" data-line-end="22">
+            <a id="OffsetX_21"></a>Offset-X:
+          </h4>
+          <p class="has-line-data" data-line-start="22" data-line-end="23">
+            Offset along x-axis
+          </p>
+        </div>
+        <div class="data">
+          <h4 class="code-line" data-line-start="23" data-line-end="24">
+            <a id="OffsetY_23"></a>Offset-Y:
+          </h4>
+          <p class="has-line-data" data-line-start="24" data-line-end="25">
+            Offset along y-axis
+          </p>
+        </div>
+        <div class="data">
+          <h4 class="code-line" data-line-start="25" data-line-end="26">
+            <a id="Color_25"></a>Color:
+          </h4>
+          <p class="has-line-data" data-line-start="26" data-line-end="27">
+            Choose the tint colour of the generated images.
+          </p>
+        </div>
+        <div class="data">
+          <h4 class="code-line" data-line-start="27" data-line-end="28">
+            <a id="Blink_Frequency_27"></a>Blink Frequency:
+          </h4>
+          <p class="has-line-data" data-line-start="28" data-line-end="29">
+            Animate the blinking of the image by changing the frequency of
+            blinking.
+          </p>
+        </div>
+      </div>
+
+      <div class="section-3">
+        <h2 class="code-line" data-line-start="31" data-line-end="32">
+          References :
+        </h2>
+       
+          
+          <a href="https://en.wikipedia.org/wiki/Mandelbrot_set"
+            >Mandelbrot set reference</a
+          >
+          <a href="https://en.wikipedia.org/wiki/Julia_set"
+            >Julia set reference</a
+          >
+      </div>
+  </body>
 </html>
