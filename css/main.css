@@ -1,140 +1,163 @@
 body {
-  background: linear-gradient(to bottom, #07d9bd, #f6ffdd);
+  font-family: Arial, Helvetica, sans-serif;
+  background: whitesmoke;
+  margin: 0;
+  padding: 0;
 }
 
-.root {
-  height: 97.4vh;
+* {
+  box-sizing: border-box;
 }
 
-#canvas-container {
-  float: left;
-  cursor: pointer;
+h1 {
+  padding: 0;
+  margin: 0;
 }
 
-#title {
-  position: relative;
-  left: -700px;
-  top: 5px;
-  color: white;
-  font-size: 18px;
+h2 {
+  padding: 0;
+  margin: 1em 0;
 }
 
-#fps {
-  position: relative;
-  left: -50px;
-  color: yellow;
-  font-size: 13px;
-}
-
-#ui {
-  float: right;
-}
-
-#ui ul {
-  font-size: 28px;
-  font-weight: bold;
-}
-
-#ui li {
-  font-size: 18px;
-  margin: 5px;
-  padding: 5px;
-  font-weight: normal;
-}
-
-input {
-  float: right;
-}
-
-input[type="number"] {
-  width: 50px;
-}
-
-input[type="range"] {
-  width: 450px;
-}
-
-input[type="color"] {
-  border: none;
-  background: none;
-}
-
-#toggle-fractal {
-  float: none;
-  width: 50px;
-  transform: translate(0, 4px);
-
-  -webkit-appearance: none;
-  appearance: none;
-  height: 20px;
-  border-radius: 10px;
-  background: white;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: 0.2s;
-  transition: opacity 0.2s;
-}
-
-#toggle-fractal:hover {
-  opacity: 1.5;
-}
-
-#toggle-fractal::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 25px;
-  height: 20px;
-  border-radius: 10px;
-  background: blue;
-  cursor: pointer;
-}
-
-#toggle-fractal::-webkit-slider-thumb:hover {
-  background: darkblue;
-}
-
-#download {
-  float: left;
-  /* border: none; */
-  border: 2px solid #07d9bd;
-
+a {
   text-decoration: none;
-  border-radius: 20px;
-  padding: 10px;
-  margin: 10px 0px;
-  background-color: white;
-  color: #07d9bd;
-  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-  transition-duration: 0.1s;
 }
 
-#download:hover {
-  background-color: #07d9bd;
-  cursor: pointer;
-  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
-    0 17px 50px 0 rgba(0, 0, 0, 0.19);
-  color: white;
+nav {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  text-align: left;
+  padding: 1.5rem 2rem;
+  background: #000;
+  color: #fff;
+  z-index: 1;
 }
 
-#displayer {
+nav a {
+  color: #fff;
+}
+
+nav svg {
+  fill: white;
+  transition: all 0.3s ease-in-out;
+}
+
+nav svg:hover {
+  transform: scale(1.2);
+}
+
+main {
   display: flex;
 }
 
-#c-imag {
-  width: 392px;
-  margin-left: 24px;
+#fps, #title {
+  position: absolute;
+  color: #b0b0b0;
+  font-size: .8em;
+}
+#fps {
+  margin: 2.5em 0 0 1em;
+}
+#title {
+  margin: 1em 0 0 1em;
 }
 
-#c-real {
-  width: 392px;
-  margin-left: 28px;
+.controls {
+  flex: auto;
+  padding: 1.5rem 1.5rem 1.5rem 3.5rem;
 }
 
-.display {
-  background-color: white;
-  border: 1px solid black;
-  width: 52px;
-  padding: 1px 2px;
-  height: 18px;
-  font-size: 14px;
+.help {
+  color: #000;
+  border-bottom: 1px solid #000;
+}
+
+#download {
+  font-weight: normal;
+  font-size: .8em;
+  padding: 0.2em 1em;
+  background: #fff;
+  border: 1px solid #B2B2B2;
+  border-radius: 1em;
+  color: #000;
+}
+
+.controls ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 450px;
+}
+
+.controls li {
+  display: flex;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  align-items: center;
+}
+
+.controls input[type="range"] {
+  flex: auto;
+}
+
+.controls input[type="number"] {
+  width: 4.2em;
+  font-size: 1em;
+  padding: .2em .4em;
+  border-radius: .2em;
+  border: 1px solid #B2B2B2;
+}
+
+#toggle-fractal {
+  flex: none;
+  width: 50px;
+  height: 2em;
+  margin: 0 1em;
+  padding: 0.4em;
+  border: 1px solid #B2B2B2;
+  border-radius: 1em;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.controls .name {
+  flex-basis: 125px;
+}
+
+.controls .display {
+  min-width: 4.2em;
+  padding: .2em .6em;
+  margin-left: .5em;
+  font-size: .8em;
+  border-radius:0.8em;
+  background: #d5d5d5;
+  text-align: center;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+}
+
+footer h2 {
+  padding: 2.5rem;
+  margin: 0;
+  background: rgb(39, 39, 54);
+  color: white;
+  font-size: 1.5rem;
+}
+
+footer a {
+  font-size: 1rem;
+  padding: 1.5rem;
+  margin-left: 1.5rem;
+  background: white;
+  color: black;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+footer a:hover {
+  box-shadow: 0 0 30px rgb(218 218 218);
 }
