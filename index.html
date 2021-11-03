@@ -7,64 +7,83 @@
 
   <link rel="stylesheet" href="./css/main.css" />
   <link rel="icon" href="./favicon.png" type="image/icon type">
-  <title>Mandelbrot Set</title>
+  <title>Mandelbrot and Julia Set Generator</title>
 </head>
 
 <body>
-  <div class="root">
-
-    <div class="application">
-      <label id="fps">fps: </label>
-      <label id="title">Mandelbrot Set and Julia Set</label>
+  <nav>
+    <h1 class="main-heading">
+      <a href="./index.html">Mandelbrot and Julia Set Generator</a>
+    </h1>
+    <a href="https://github.com/ShishirBhandari/mandelbrot-set-generator">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+      </svg>
+    </a>
+  </nav>
+  <main>
+    <section class="app">
+      <div id="fps">fps: 59</div>
+      <div id="title">Mandelbrot Set</div>
       <div id="canvas-container"></div>
-      <div id="ui">
-        <ul>
-          | Controls |
-          <a href="help.html" style="float: none; font-size: 13px; text-decoration: none;">help?</a>
-          <li>Mandelbrot Set <input type="range" min="0" max="1" step="1" value="0" id="toggle-fractal"> Julia Set
-          </li>
-          <li>
-            Iterations: <input type="number" value="50" id="iter" />
-          </li>
-          <li>
-            Zoom:
-            <input type="range" min="1.0" max="250" step="0.001" value="1.0" id="scale" />
-          </li>
-          <li>
-            <div id="displayer">
-              C-Real:
-              <input type="range" min="-2.0" max="2.0" step="0.001" value="-1.2" id="c-real" />
-              <div class="display" id="c-real-display"></div>
-            </div>
-          </li>
-          <li>
-            <div id="displayer">
-              C-Imag:
-              <input type="range" min="0.0" max="1.0" step="0.001" value="0.0" id="c-imag" />
-              <div class="display" id="c-imag-display"></div>
-            </div>
-          </li>
-          <li>
-            Limit: <input type="number" value="2.0" step="0.2" id="limit" />
-          </li>
-          <li>
-            Offset-X:
-            <input type="range" value="0.0" step="0.05" min="-1.0" max="1.0" id="offset-x" />
-          </li>
-          <li>
-            Offset-Y:
-            <input type="range" value="0.0" step="0.05" min="-1.0" max="1.0" id="offset-y" />
-          </li>
-          <li>Color: <input type="color" value="#ffffff" id="color" /></li>
-          <li>
-            Blink Frequency: <input type="number" value="1" id="color-freq" />
-          </li>
-        </ul>
-      </div>
-      <a id="download" download="mandelbrot_image.png" onclick="downloadCanvasAsImage(this)">Download Image</a>
-    </div>
-    <div class="footer"></div>
-  </div>
+    </section>
+    <section class="controls">
+      <h2>Controls | <a class="help" href="./help.html">Help</a></h2>
+      <ul>
+        <li>
+          Mandelbrot Set <input type="range" min="0" max="1" step="1" value="0" id="toggle-fractal"> Julia Set
+        </li>
+        <li>
+          <span class="name">Iterations:</span>
+          <input type="number" value="50" id="iter"/>
+        </li>
+        <li>
+          <span class="name">Zoom:</span>
+          <input type="range" min="1.0" max="250" step="0.001" value="1.0" id="scale" />
+        </li>
+        <li>
+          <span class="name">C-Real:</span>
+          <input type="range" min="-2.0" max="2.0" step="0.001" value="-1.2" id="c-real" />
+          <span class="display" id="c-real-display"></span>
+        </li>
+        <li>
+          <span class="name">C-Imag:</span>
+          <input type="range" min="0.0" max="1.0" step="0.001" value="0.0" id="c-imag" />
+          <span class="display" id="c-imag-display"></span>
+        </li>
+        <li>
+          <span class="name">Limit:</span>
+          <input type="number" value="2.0" step="0.2" id="limit" />
+        </li>
+        <li>
+          <span class="name">Offset-X:</span>
+          <input type="range" value="0.0" step="0.05" min="-1.0" max="1.0" id="offset-x" />
+        </li>
+        <li>
+          <span class="name">Offset-Y:</span>
+          <input type="range" value="0.0" step="0.05" min="-1.0" max="1.0" id="offset-y" />
+        </li>
+        <li>
+          <span class="name">Color:</span>
+          <input type="color" value="#ffffff" id="color" />
+        </li>
+        <li>
+          <span class="name">Blink Frequency:</span>
+          <input type="number" value="1" id="color-freq" />
+        </li>
+        <li>
+          <h2>
+            <a id="download" download="mandelbrot_image.png" onclick="downloadCanvasAsImage(this)" href="#">Download Image</a>
+          </h2>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <h2 class="code-line">References:</h2>
+    <a href="https://en.wikipedia.org/wiki/Mandelbrot_set">Mandelbrot set reference</a>
+    <a href="https://en.wikipedia.org/wiki/Julia_set">Julia set reference</a>
+  </footer>
 
   <script>
     var downloadCanvasAsImage = function () {
