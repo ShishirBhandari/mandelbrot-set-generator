@@ -33,8 +33,6 @@ This javascript app generates Mandelbrot set and Julia set images using webgl an
 - Offset along y-axis
 ### Color:
 - Choose the tint colour of the generated images
-### Blink Frequency:
-- Animate the blinking of the image by changing the frequency of blinking.
 
 ## References
 - [Mandelbrot Set Reference](https://en.wikipedia.org/wiki/Mandelbrot_set)

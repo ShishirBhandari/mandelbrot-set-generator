@@ -8,7 +8,6 @@ var cImagElem = document.getElementById("c-imag");
 var cImagDisplay = document.getElementById("c-imag-display");
 var offsetXElem = document.getElementById("offset-x");
 var offsetYElem = document.getElementById("offset-y");
-var colorFreqElem = document.getElementById("color-freq");
 
 function uiResetCommon() {
   scaleElem.value = scale;
@@ -23,7 +22,6 @@ function uiResetCommon() {
 iterElem.value = iterations;
 offsetXElem.value = offset[0];
 offsetYElem.value = offset[1];
-colorFreqElem.value = colorFrequency;
 
 var mpostionInitial = { x: null, y: null };
 var mpostionFinal = { x: null, y: null };
@@ -116,9 +114,6 @@ offsetYElem.addEventListener("mousemove", function (e) {
 
 });
 
-colorFreqElem.addEventListener("change", function (e) {
-  colorFrequency = e.target.value;
-});
 
 var downloadButton = document.getElementById("download");
 

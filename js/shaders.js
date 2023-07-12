@@ -22,7 +22,6 @@ uniform float time;
 uniform bool is_mandelbrot;
 
 uniform vec4 color;
-uniform float color_frequency;
 
 uniform float iters;
 uniform float scale;
@@ -95,8 +94,7 @@ void main() {
 
   vec3 mandelbrot_color = vec3(r, g, b);
   vec4 final_color = vec4(mandelbrot_color, 1.0) * color;
-  final_color.a = final_color.a * (sin(color_frequency*time) / 2.0 + 1.0);
+
   gl_FragColor = final_color;
 }
 `;
-
