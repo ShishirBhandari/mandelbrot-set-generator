@@ -14,7 +14,6 @@ function reset(_is_mandelbrot) {
   cRealJulia = C_REAL_JULIA
   cImagJulia = C_IMAG_JULIA
   tintColor = TINT_COLOR;
-  colorFrequency = COLOR_FREQ;
 }
 reset(IS_MANDELBROT);
 
@@ -103,10 +102,6 @@ var offsetUniformLocation = gl.getUniformLocation(program, "offset");
 
 var cRealUniformLocation = gl.getUniformLocation(program, "c_real");
 var cImagUniformLocation = gl.getUniformLocation(program, "c_imag");
-var colorFrequencyUniformLocation = gl.getUniformLocation(
-  program,
-  "color_frequency"
-);
 
 function setUniforms() {
   gl.uniform1i(isMandelbrotUniformLocation, is_mandelbrot);
@@ -117,7 +112,6 @@ function setUniforms() {
 
   gl.uniform1f(cRealUniformLocation, cReal);
   gl.uniform1f(cImagUniformLocation, cImag);
-  gl.uniform1f(colorFrequencyUniformLocation, colorFrequency);
   gl.uniform4fv(program.color, tintColor);
 }
 
